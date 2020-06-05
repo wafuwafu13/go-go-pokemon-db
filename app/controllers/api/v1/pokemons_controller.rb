@@ -29,7 +29,7 @@ module Api
       private
 
       def set_pokemon
-        @pokemon = Pokemon.find(params[:id])
+        @pokemon = Pokemon.find_by(poke_id: params[:id])
       end
 
       def pokemon_params
