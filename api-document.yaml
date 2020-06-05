@@ -1,0 +1,92 @@
+swagger: "2.0"
+info:
+  description: "これはポケモン足し算に関するAPIです。"
+  version: "1.0.0"
+  title: "ポケモン足し算API"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    url: "https://tagawa.netlify.app/"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+paths:
+  /pokemons:
+    get:
+      summary: "ポケモン一覧API"
+      description: "捕獲したポケモンの情報を返します"
+      responses:
+        200:
+          description: "成功時のレスポンス"
+          schema:
+            type: "object"
+            properties:
+              status:
+                type: "string"
+                example: "SUCCESS"
+              message:
+                type: "string"
+                example: "Loaded pokemons"
+              data:
+                type: "array"
+                items: 
+                  type: "object"
+                  properties:
+                    id:
+                      type: "integer"
+                      example: 1
+                    name:
+                      type: "string"
+                      example: "magikarp"
+                    poke_id:
+                      type: "integer"
+                      example: 332
+                    created_at:
+                      type: "string"
+                      example: "2020-06-05T00:22:35.486Z"
+                    updated_at:
+                      type: "string"
+                      example: "2020-06-05T00:22:35.486Z"
+  
+  /pokemons/{poke_id}:
+    delete:
+      summary: "ポケモン削除API"
+      description: "捕獲したポケモンの情報を返します"
+      parameters:
+      - name: "poke_id"
+        in: "path"
+        description: "削除したいポケモンのID"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        200:
+          description: "成功時のレスポンス"
+          schema:
+            type: "object"
+            properties:
+              status:
+                type: "string"
+                example: "SUCCESS"
+              message:
+                type: "string"
+                example: "Deleted the pokemon"
+              data:
+                type: "array"
+                items: 
+                  type: "object"
+                  properties:
+                    id:
+                      type: "integer"
+                      example: 1
+                    name:
+                      type: "string"
+                      example: "magikarp"
+                    poke_id:
+                      type: "integer"
+                      example: 332
+                    created_at:
+                      type: "string"
+                      example: "2020-06-05T00:22:35.486Z"
+                    updated_at:
+                      type: "string"
+                      example: "2020-06-05T00:22:35.486Z"
