@@ -47,10 +47,54 @@ paths:
                       type: "string"
                       example: "2020-06-05T00:22:35.486Z"
   
+  /pokemons/{name}/{poke_id}:
+    put:
+      summary: "ポケモン捕獲API"
+      description: "指定したポケモンを保存します"
+      parameters:
+      - name: "name"
+        in: "path"
+        description: "捕獲したいポケモンの名前"
+        required: true
+        type: "string"
+      - name: "poke_id"
+        in: "path"
+        description: "捕獲したいポケモンのID"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        200:
+          description: "成功時のレスポンス"
+          schema:
+            type: "object"
+            properties:
+              status:
+                type: "string"
+                example: "SUCCESS"
+              data:
+                type: "object"
+                properties:
+                  id:
+                    type: "integer"
+                    example: 30
+                  name: 
+                    type: "string"
+                    example: "leavanny"
+                  poke_id: 
+                    type: "integer"
+                    example: 542
+                  created_at:
+                    type: "string"
+                    example: "2020-06-05T00:22:35.486Z"
+                  updated_at:
+                    type: "string"
+                    example: "2020-06-05T00:22:35.486Z"
+
   /pokemons/{poke_id}:
     delete:
       summary: "ポケモン削除API"
-      description: "捕獲したポケモンの情報を返します"
+      description: "指定したポケモンを削除します"
       parameters:
       - name: "poke_id"
         in: "path"
