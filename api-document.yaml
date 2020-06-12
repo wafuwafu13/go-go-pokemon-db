@@ -48,7 +48,7 @@ paths:
                       example: "2020-06-05T00:22:35.486Z"
   
   /pokemons/{name}/{poke_id}:
-    put:
+    post:
       summary: "ポケモン捕獲API"
       description: "指定したポケモンを保存します"
       parameters:
